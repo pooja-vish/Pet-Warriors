@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Vets</title>
+</head>
+<body>
+    <h1>Nearest Vets</h1>
+    <ul>
+        {% for vet in vets %}
+            <li>
+                <strong>Name:</strong> {{ vet.name }}<br>
+                <strong>Address:</strong> {{ vet.address }}<br>
+                <a href="https://www.google.com/maps/place/?q=place_id:{{ vet.place_id }}" target="_blank">View on Map</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
