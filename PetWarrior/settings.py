@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PetForum.apps.PetforumConfig',
+    'Adoption.apps.AdoptionConfig',
+    'LoginSignup.apps.LoginsignupConfig',
     'lost_and_found',
 ]
 
