@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from PetForum import views, urls
+from Adoption import views, urls
+from LoginSignup import views, urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PetForum.urls')),
+    path('', include('Adoption.urls')),
+    path('', include('LoginSignup.urls'))
 ]

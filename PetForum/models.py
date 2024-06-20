@@ -21,13 +21,13 @@ class Question(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category, related_name='category')
     title = models.TextField()
-    creationDate = models.DateTimeField(default=timezone.now())
-    updationDate = models.DateTimeField(default=timezone.now())
+    creationDate = models.DateTimeField(default=timezone.now)
+    updationDate = models.DateTimeField(default=timezone.now)
 
 class Answer(models.Model):
     answer = models.TextField(primary_key=True)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    creationDate = models.DateTimeField(default=timezone.now())
-    updationDate = models.DateTimeField(default=timezone.now())
+    creationDate = models.DateTimeField(default=timezone.now)
+    updationDate = models.DateTimeField(default=timezone.now)
     likes = models.IntegerField(default=0)
