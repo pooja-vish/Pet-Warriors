@@ -427,6 +427,8 @@ h6, .h6 {
   line-height: 1.2;
 }
 
+
+
 @media (max-width: 1200px) {
   .display-1 {
     font-size: calc(1.725rem + 5.7vw) ;
@@ -9672,6 +9674,8 @@ a.text-dark:hover, a.text-dark:focus {
   h3 {
     page-break-after: avoid;
   }
+
+
   @page {
     size: a3;
   }
@@ -9728,7 +9732,6 @@ h5,
 h6 {
   font-weight: 600 !important;
 }
-
 [class^=flaticon-]:before,
 [class*=" flaticon-"]:before,
 [class^=flaticon-]:after,

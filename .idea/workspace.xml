@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d98150a2-0b47-448a-bbf6-c04dbb6cae1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adoption/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adoption/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adoption/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adoption/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetForum/static/PetForum/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/static/PetForum/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetWarrior/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetWarrior/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetWarrior/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetWarrior/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetForum/templates/PetForum/forum.html" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/templates/PetForum/forum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +26,7 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -41,23 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.PetWarrior.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Semester3/Internship Project/Pet-Warriors&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.PetWarrior.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "git-widget-placeholder": "PetForumIntegration",
+    "last_opened_file_path": "C:/Users/dellf/University/3rd Sem/Internship Project/Pet-Warriors",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Semester3\Internship Project\Pet-Warriors\LoginSignup\templates\LoginSignup" />
@@ -113,6 +115,11 @@
       <workItem from="1718772953352" duration="7975000" />
       <workItem from="1718814994299" duration="3481000" />
       <workItem from="1718892272450" duration="1752000" />
+      <workItem from="1718994578369" duration="1921000" />
+      <workItem from="1719113155069" duration="7670000" />
+      <workItem from="1719160874968" duration="4556000" />
+      <workItem from="1719168127679" duration="4436000" />
+      <workItem from="1719247868480" duration="921000" />
     </task>
     <servers />
   </component>
