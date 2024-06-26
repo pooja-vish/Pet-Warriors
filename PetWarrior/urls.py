@@ -16,21 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-<<<<<<< HEAD
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('nearest-vets/', include('NearestVets.urls')),
-=======
 from PetForum import views, urls
 from Adoption import views, urls
 from LoginSignup import views, urls
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PetForum.urls')),
     path('', include('Adoption.urls')),
-    path('', include('LoginSignup.urls'))
->>>>>>> 59df9e36402295a38cedb6a8e0ab10bb3fd353b5
+    path('', include('LoginSignup.urls')),
+    path('nearest-vets/', include('NearestVets.urls')),
 ]

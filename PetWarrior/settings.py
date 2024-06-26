@@ -38,13 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PetForum.apps.PetforumConfig',
-<<<<<<< HEAD
     'NearestVets',
-=======
     'Adoption.apps.AdoptionConfig',
     'LoginSignup.apps.LoginsignupConfig',
     'lost_and_found',
->>>>>>> 59df9e36402295a38cedb6a8e0ab10bb3fd353b5
 ]
 
 MIDDLEWARE = [
