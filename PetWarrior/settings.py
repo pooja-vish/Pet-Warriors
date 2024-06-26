@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'PetForum.apps.PetforumConfig',
     'NearestVets',
-    'background_task',
 ]
 
 MIDDLEWARE = [
