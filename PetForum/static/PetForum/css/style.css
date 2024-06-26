@@ -7694,6 +7694,12 @@ button.bg-dark:focus {
   margin-bottom: 1.5rem !important;
 }
 
+.scrollable-div {
+  max-height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
 .ml-4,
 .mx-4 {
   margin-left: 1.5rem !important;
