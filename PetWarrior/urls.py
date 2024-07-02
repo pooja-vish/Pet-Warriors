@@ -19,6 +19,7 @@ from django.urls import path, include
 from PetForum import views, urls
 from Adoption import views, urls
 from LoginSignup import views, urls
+from NearestVets import views, urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PetForum.urls')),
