@@ -13,10 +13,17 @@
     <div class="vet-list">
         {% for vet in vets %}
         <div class="vet-item" data-address="{{ vet.address }}">
+            <div class="vet-info">
                 <strong>Name:</strong> {{ vet.name }}<br>
                 <strong>Address:</strong> {{ vet.address }}<br>
                 <a href="https://www.google.com/maps/place/?q=place_id:{{ vet.place_id }}" target="_blank" class="btn btn-directions">Get Directions</a>
             </div>
+            {% if vet.photo_url %}
+                <div class="vet-image">
+                    <img src="{{ vet.photo_url }}" alt="{{ vet.name }} Photo" style="max-width: 200px; max-height: 150px;">
+                </div>
+            {% endif %}
+        </div>
         {% endfor %}
     </div>
 
@@ -29,11 +36,31 @@
         }
 
         .vet-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             border: 1px solid #ccc;
             padding: 20px;
             border-radius: 5px;
             background-color: #f9f9f9;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .vet-info {
+            flex: 1;
+        }
+
+        .vet-image {
+            flex-shrink: 0;
+            margin-left: 20px; /* Adjust as needed for spacing */
+        }
+
+        .vet-image img {
+            max-width: 200px; /* Adjust maximum width as per your design */
+            max-height: 150px; /* Adjust maximum height as per your design */
+            width: auto;
+            height: auto;
+            border-radius: 5px;
         }
 
         .vet-item strong {

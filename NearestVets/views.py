@@ -1,9 +1,7 @@
-# views.py
 from django.http import HttpResponse
 from django.shortcuts import render
 import threading
 import time
-from .models import Vet
 import requests
 
 # Function to fetch data from Google API
@@ -25,11 +23,27 @@ def fetch_google_places(api_key, location, radius):
             'name': place.get('name'),
             'address': place.get('vicinity'),
             'place_id': place.get('place_id'),
+            'photo_url': get_photo_url(place, api_key)  # Fetch photo URL or Street View if no regular photos
         }
-        # Optionally, you can fetch more details using place details API here if needed
         vets.append(vet)
     
     return vets
+
+# Function to get photo URL or street view from place details
+def get_photo_url(place, api_key):
+    photos = place.get('photos', [])
+    if photos:
+        photo_reference = photos[0].get('photo_reference', '')
+        if photo_reference:
+            return f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}'
+    
+    # If no regular photos, attempt to fetch Street View
+    if place.get('geometry', {}).get('location'):
+        lat = place['geometry']['location']['lat']
+        lng = place['geometry']['location']['lng']
+        return f'https://maps.googleapis.com/maps/api/streetview?size=400x300&location={lat},{lng}&key={api_key}'
+    
+    return None
 
 # Global variable to hold fetched data
 fetched_data = []
@@ -37,7 +51,7 @@ fetched_data = []
 # Function to refresh data from Google API
 def refresh_data():
     global fetched_data
-    api_key =  'AIzaSyDHMLz7UrsQIaM6njsVykYns0NE5WcA-Sw'  # Replace with your actual Google API key
+    api_key = 'AIzaSyDHMLz7UrsQIaM6njsVykYns0NE5WcA-Sw'  # Replace with your actual Google API key
     location = '42.302290,-83.053250'  # Replace with actual location
     radius = 5000  # Define the radius in meters within which to search
 
