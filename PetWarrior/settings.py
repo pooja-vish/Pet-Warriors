@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'PetForum.apps.PetforumConfig',
     'Adoption.apps.AdoptionConfig',
     'LoginSignup.apps.LoginsignupConfig',
-    'lost_and_found',
+    'LostAndFound',
 ]
 
 MIDDLEWARE = [
