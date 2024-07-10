@@ -3,9 +3,16 @@
 {% block content %}
 
     <h1>Nearest Vets</h1>
+
+    <!-- Search Bar and Button -->
+    <div>
+        <input type="text" id="addressSearch" placeholder="Search by Address...">
+        <button onclick="filterVets()">Search</button>
+    </div>
+
     <div class="vet-list">
         {% for vet in vets %}
-        <div class="vet-item">
+        <div class="vet-item" data-address="{{ vet.address }}">
                 <strong>Name:</strong> {{ vet.name }}<br>
                 <strong>Address:</strong> {{ vet.address }}<br>
                 <a href="https://www.google.com/maps/place/?q=place_id:{{ vet.place_id }}" target="_blank" class="btn btn-directions">Get Directions</a>
@@ -49,5 +56,25 @@
             background-color: #0056b3;
         }
     </style>
+
+    <script>
+        function filterVets() {
+            var input, filter, vetItems, vet, address, i;
+            input = document.getElementById('addressSearch');
+            filter = input.value.toUpperCase();
+            vetItems = document.getElementsByClassName('vet-item');
+
+            for (i = 0; i < vetItems.length; i++) {
+                vet = vetItems[i];
+                address = vet.getAttribute('data-address');
+
+                if (address.toUpperCase().indexOf(filter) > -1) {
+                    vet.style.display = '';
+                } else {
+                    vet.style.display = 'none';
+                }
+            }
+        }
+    </script>
 
 {% endblock content %}
