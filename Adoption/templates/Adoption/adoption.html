@@ -2,13 +2,32 @@
 {% load static %}
 {% block content %}
     <!--Adoption Page Starts -->
+
     <div class="container-fluid">
-        <div class="container">
+    <!-- search bar-->
+
+        <div class="mb-5 my-sm-2 mx-5 p-1">
+                    <form action="">
+                        <div class="input-group">
+                            <!--<input type="text" class="form-control form-control-lg" placeholder="Enter Species here">-->
+                             {{ searchForm.as_p }}
+                            <div class="input-group-append">
+                                <button class="input-group-text bg-transparent text-primary"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div
+    <!-- search bar ends-->
+        <div class="container_adoption">
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
-                            <div class="form-group">
+                        <form method="post" enctype="multipart/form-data" class="py-5">
+                            <h3 class="font-weight-bolder">Have pets, wanna give for adoption?</h3>
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <!--<div class="form-group">
                                 <input type="file" class="form-control border-0 p-4" id="img" name="img"
                                        accept="image/*" required="required">
                             </div>
@@ -23,7 +42,7 @@
                             <div class="form-group">
                                 <<input type="text" class="form-control border-0 p-4" id="species" name="species"
                                         placeholder="Enter species" required="required">
-                            </div>
+                            </div>-->
                             <div>
                                 <button class="btn btn-dark btn-block border-0 py-3" type="submit">Up for Adoption
                                 </button>
@@ -33,47 +52,22 @@
                 </div>
                 <div class="col-lg-7  scrollable-div">
                     <div >
-
-                        <h3 class="display-4 mb-4">These adorables </br><span class="text-primary">needs a home</span></h3>
-                        <div class="card border-0 mb-2">
-                            <img class="card-img-top" src="{% static 'Adoption/img/image1.jpg' %}" alt="">
-                            <div class="card-body bg-light p-4">
-                                <h4 class="card-title text-truncate">Adorable cute fat Puppy for adoption</h4>
-                                <div class="d-flex mb-3">
-                                    <small class="mr-2"><i class="fa fa-user text-muted"></i> Admin</small>
-                                    <small class="mr-2"><i class="fa fa-folder text-muted"></i> </small>
-                                    <small class="mr-2"><i class="fa fa-comments text-muted"></i> 15</small>
+                        <h3 class="display-4 mb-4 position-sticky">These adorables <span class="text-primary">needs a home</span></h3>
+                        {% for post in posts %}
+                            <div class="card border-0 mb-2">
+                                <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.species }}">
+                                <div class="card-body bg-light p-4">
+                                    <h4 class="card-title text-truncate">{{post.species}}</h4>
+                                    <div class="d-flex mb-3">
+                                        <small class="mr-2"><i class="fa fa-user text-muted"></i> {{post.user_id}}</small>
+                                        <small class="mr-2"><i class="fa fa-folder text-muted"></i>{{post.location}} </small>
+                                        <small class="mr-2"><i class="fa fa-comments text-muted"></i> {{post.date_posted}}</small>
+                                    </div>
+                                    <p>{{post.description}}</p>
+                                    <a class="font-weight-bold" href="">Read More</a>
                                 </div>
-                                <p>kaleshi, but cute, 27 year old puppy for adoption, might bite sometimes</p>
-                                <a class="font-weight-bold" href="">Read More</a>
                             </div>
-                        </div>
-                        <div class="card border-0 mb-2">
-                            <img class="card-img-top" src="{% static 'Adoption/img/image3.jpeg' %}" alt="">
-                            <div class="card-body bg-light p-4">
-                                <h4 class="card-title text-truncate">Bunny for adoption</h4>
-                                <div class="d-flex mb-3">
-                                    <small class="mr-2"><i class="fa fa-user text-muted"></i> Admin</small>
-                                    <small class="mr-2"><i class="fa fa-folder text-muted"></i> </small>
-                                    <small class="mr-2"><i class="fa fa-comments text-muted"></i> 15</small>
-                                </div>
-                                <p>White bunny, up for adoption</p>
-                                <a class="font-weight-bold" href="">Read More</a>
-                            </div>
-                        </div>
-                        <div class="card border-0 mb-2">
-                            <img class="card-img-top" src="{% static 'Adoption/img/image2.jpeg' %}" alt="">
-                            <div class="card-body bg-light p-4">
-                                <h4 class="card-title text-truncate">Cute kitten for adoption</h4>
-                                <div class="d-flex mb-3">
-                                    <small class="mr-2"><i class="fa fa-user text-muted"></i> Admin</small>
-                                    <small class="mr-2"><i class="fa fa-folder text-muted"></i></small>
-                                    <small class="mr-2"><i class="fa fa-comments text-muted"></i> 15</small>
-                                </div>
-                                <p>cute kitten, 3 months old up for adoption</p>
-                                <a class="font-weight-bold" href="">Read More</a>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
