@@ -37,10 +37,10 @@
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
                     <a href="home.html" class="nav-item nav-link active">Home</a>
-					<a href="forum.html" class="nav-item nav-link">Forum</a>
+					<a href="{% url 'forum' %}" class="nav-item nav-link">Forum</a>
                     <a href="lost.html" class="nav-item nav-link">Lost</a>
                     <a href="found.html" class="nav-item nav-link">Found</a>
-                    <a href="vets.html" class="nav-item nav-link">Find Nearest Vets</a>
+                    <a href="{% url 'nearest_vets' %}" class="nav-item nav-link">Find Nearest Vets</a>
                     <a href="adoption.html" class="nav-item nav-link">Adoption</a>
 					<a href="discounts.html" class="nav-item nav-link">Offers & Discounts</a>
                 </div>
@@ -75,12 +75,12 @@
                         <h5 class="text-primary mb-4">Popular Links</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Forum</a>
+                            <a class="text-white mb-2" href="{% url 'forum' %}"><i class="fa fa-angle-right mr-2"></i>Forum</a>
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Lost</a>
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Found</a>
                             <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Adoption</a>
 							<a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Offers & Discounts</a>
-							<a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Find Nearest Vets</a>
+							<a class="text-white" href="{% url 'nearest_vets' %}"><i class="fa fa-angle-right mr-2"></i>Find Nearest Vets</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">

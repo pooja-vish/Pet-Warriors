@@ -1,0 +1,107 @@
+{% extends "PetForum/base.html" %}
+{% load static %}
+{% block content %}
+
+    <h1>Nearest Vets</h1>
+
+    <!-- Search Bar and Button -->
+    <div>
+        <input type="text" id="addressSearch" placeholder="Search by Address...">
+        <button onclick="filterVets()">Search</button>
+    </div>
+
+    <div class="vet-list">
+        {% for vet in vets %}
+        <div class="vet-item" data-address="{{ vet.address }}">
+            <div class="vet-info">
+                <strong>Name:</strong> {{ vet.name }}<br>
+                <strong>Address:</strong> {{ vet.address }}<br>
+                <a href="https://www.google.com/maps/place/?q=place_id:{{ vet.place_id }}" target="_blank" class="btn btn-directions">Get Directions</a>
+            </div>
+            {% if vet.photo_url %}
+                <div class="vet-image">
+                    <img src="{{ vet.photo_url }}" alt="{{ vet.name }} Photo" style="max-width: 200px; max-height: 150px;">
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <style>
+        .vet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .vet-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .vet-info {
+            flex: 1;
+        }
+
+        .vet-image {
+            flex-shrink: 0;
+            margin-left: 20px; /* Adjust as needed for spacing */
+        }
+
+        .vet-image img {
+            max-width: 200px; /* Adjust maximum width as per your design */
+            max-height: 150px; /* Adjust maximum height as per your design */
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .vet-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-directions {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn-directions:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <script>
+        function filterVets() {
+            var input, filter, vetItems, vet, address, i;
+            input = document.getElementById('addressSearch');
+            filter = input.value.toUpperCase();
+            vetItems = document.getElementsByClassName('vet-item');
+
+            for (i = 0; i < vetItems.length; i++) {
+                vet = vetItems[i];
+                address = vet.getAttribute('data-address');
+
+                if (address.toUpperCase().indexOf(filter) > -1) {
+                    vet.style.display = '';
+                } else {
+                    vet.style.display = 'none';
+                }
+            }
+        }
+    </script>
+
+{% endblock content %}
