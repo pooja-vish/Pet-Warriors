@@ -14,7 +14,41 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'PetForum/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'PetForum/css/style1.css' %}" rel="stylesheet">
     <title>Pet Warriors</title>
+    <script>
+        function askQuestions() {
+    var formContainer = document.getElementById("form-container");
+    if (formContainer.style.display === "block") {
+        formContainer.style.display = "none";
+    } else {
+        formContainer.style.display = "block";
+    }
+}
+
+function showTextBox(questionId) {
+    var answerForm = document.getElementById(`answer-form-${questionId}`);
+    if (answerForm.style.display === "block") {
+        answerForm.style.display = "none";
+    } else {
+       answerForm.style.display = "block";
+    }
+}
+
+function loadAnswers(questionId) {
+    var answerDiv = document.getElementById(`divAnswersId-${questionId}`);
+    if (answerDiv.style.display === "block") {
+        answerDiv.style.display = "none";
+    } else {
+        answerDiv.style.display = "block";
+    }
+}
+
+
+        function hideTextBox() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -36,15 +70,15 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="home.html" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
 					<a href="{% url 'forum' %}" class="nav-item nav-link">Forum</a>
-                    <a href="lost.html" class="nav-item nav-link">Lost</a>
-                    <a href="found.html" class="nav-item nav-link">Found</a>
-                    <a href="{% url 'nearest_vets' %}" class="nav-item nav-link">Find Nearest Vets</a>
-                    <a href="adoption.html" class="nav-item nav-link">Adoption</a>
-					<a href="discounts.html" class="nav-item nav-link">Offers & Discounts</a>
+                    <a href="#" class="nav-item nav-link">Lost</a>
+                    <a href="#" class="nav-item nav-link">Found</a>
+                    <a href="#" class="nav-item nav-link">Find Nearest Vets</a>
+                    <a href="{% url 'adoption' %}" class="nav-item nav-link">Adoption</a>
+					<a href="#" class="nav-item nav-link">Offers & Discounts</a>
                 </div>
-                <a href="Pet-Warriors\Adoption\templates\Adoption\login.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Login/SignUp</a>
+                <a href="{% url 'login' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Login/SignUp</a>
             </div>
         </nav>
     </div>
@@ -74,13 +108,13 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="text-primary mb-4">Popular Links</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-white mb-2" href="{% url 'index' %}"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-white mb-2" href="{% url 'forum' %}"><i class="fa fa-angle-right mr-2"></i>Forum</a>
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Lost</a>
                             <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Found</a>
-                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Adoption</a>
+                            <a class="text-white" href="{% url 'adoption' %}"><i class="fa fa-angle-right mr-2"></i>Adoption</a>
 							<a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Offers & Discounts</a>
-							<a class="text-white" href="{% url 'nearest_vets' %}"><i class="fa fa-angle-right mr-2"></i>Find Nearest Vets</a>
+							<a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Find Nearest Vets</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">

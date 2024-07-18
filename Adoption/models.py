@@ -4,11 +4,10 @@ from django.db import models
 from PetForum.models import Member
 # Create your models here.
 class Adoption(models.Model):
-    image = models.ImageField(upload_to ='images/'),
-    description = models.TextField(),
-    location = models.TextField(),
-    user_id = models.ForeignKey(Member, on_delete=models.CASCADE),
-    #date_posted = models.DateTimeField(default=timezone.now),
-    date_posted = models.DateTimeField(default=timezone.now),
+    image = models.ImageField(upload_to ='img/')
+    description = models.TextField()
+    location = models.TextField()
+    user_id = models.ForeignKey(Member, on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(default=timezone.now)
     species = models.TextField()
 
