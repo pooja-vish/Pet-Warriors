@@ -1,0 +1,39 @@
+.answer-div {
+    display: none;
+}
+#form-container {
+    display: none;
+}
+.form-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 6px
+}
+.after-space-div{
+    margin-bottom: 15px;
+    border-radius: 15px;
+    margin-right: 20px
+}
+.space-div{
+    padding-right: 30px;
+    padding-left: 50px;
+}
+.form-container {
+          max-width:  2000px;
+          text-align: center;
+}
+
+.div-scroll {
+    overflow-x:hidden;
+    overflow-y:scroll;
+    height: 500px;
+    width:200px;
+}
