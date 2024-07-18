@@ -3,6 +3,10 @@ from django.shortcuts import render
 import threading
 import time
 import requests
+from django.shortcuts import redirect
+
+from NearestVets.models import Location
+
 
 # Function to fetch data from Google API
 def fetch_google_places(api_key, location, radius):
@@ -48,16 +52,33 @@ def get_photo_url(place, api_key):
 # Global variable to hold fetched data
 fetched_data = []
 
-# Function to refresh data from Google API
-def refresh_data():
+def refresh_data(location='42.302290,-83.053250', radius=5000):
     global fetched_data
-    api_key = 'AIzaSyDHMLz7UrsQIaM6njsVykYns0NE5WcA-Sw'  # Replace with your actual Google API key
-    location = '42.302290,-83.053250'  # Replace with actual location
-    radius = 5000  # Define the radius in meters within which to search
-
+    api_key = 'AIzaSyDHMLz7UrsQIaM6njsVykYns0NE5WcA-Sw'  # Constant API key
+    
+    # Fetch data from Google Places API
     fetched_data = fetch_google_places(api_key, location, radius)
     print(f"[DEBUG] Data refreshed at: {time.strftime('%Y-%m-%d %H:%M:%S')}")
 
+def refresh_data_new(request):
+    if request.method == 'POST':
+        location = request.POST.get('searchLocation')  # Get the selected location from POST data
+        print(location, "this is me")
+        radius = 5000  # Default radius value
+        
+        # Fetch data from Google Places API
+        global fetched_data
+        fetched_data = fetch_google_places(api_key='AIzaSyDHMLz7UrsQIaM6njsVykYns0NE5WcA-Sw', location=location, radius=radius)
+        print(f"[DEBUG] Data refreshed at: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        return redirect('nearest_vets')
+        # Optionally, handle the fetched data or redirect to another view
+        
+    else:
+        # Handle GET request or render the form
+        locations = Location.objects.all()  # Fetch locations to populate the dropdown
+        return render(request, 'NearestVets/nearest_vets.html', {'locations': locations})
+    
 # Background thread function to run refresh every 6 hours
 def background_refresh():
     while True:
@@ -76,6 +97,6 @@ def hello(request):
 def nearest_vets(request):
     global fetched_data
     # Use the globally fetched data
+    locations = Location.objects.all()
     vets = fetched_data
-    
-    return render(request, 'nearest_vets.html', {'vets': vets})
+    return render(request, 'nearest_vets.html', {'vets': vets, 'locations': locations})
