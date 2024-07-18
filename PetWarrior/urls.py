@@ -19,11 +19,11 @@ from django.urls import path, include
 from PetForum import views, urls
 from Adoption import views, urls
 from LoginSignup import views, urls
-
-
+from NearestVets import views, urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PetForum.urls')),
     path('', include('Adoption.urls')),
-    path('', include('LoginSignup.urls'))
+    path('', include('LoginSignup.urls')),
+    path('nearest-vets/', include('NearestVets.urls')),
 ]
