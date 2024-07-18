@@ -17,12 +17,34 @@
     <link href="{% static 'PetForum/css/style1.css' %}" rel="stylesheet">
     <title>Pet Warriors</title>
     <script>
-        function loadAnswers() {
-           document.getElementById("divAnswersId").style.display = "block";
-        }
-        function showTextBox() {
-            document.getElementById("myForm").style.display = "block";
-        }
+        function askQuestions() {
+    var formContainer = document.getElementById("form-container");
+    if (formContainer.style.display === "block") {
+        formContainer.style.display = "none";
+    } else {
+        formContainer.style.display = "block";
+    }
+}
+
+function showTextBox(questionId) {
+    var answerForm = document.getElementById(`answer-form-${questionId}`);
+    if (answerForm.style.display === "block") {
+        answerForm.style.display = "none";
+    } else {
+       answerForm.style.display = "block";
+    }
+}
+
+function loadAnswers(questionId) {
+    var answerDiv = document.getElementById(`divAnswersId-${questionId}`);
+    if (answerDiv.style.display === "block") {
+        answerDiv.style.display = "none";
+    } else {
+        answerDiv.style.display = "block";
+    }
+}
+
+
         function hideTextBox() {
             document.getElementById("myForm").style.display = "none";
         }
