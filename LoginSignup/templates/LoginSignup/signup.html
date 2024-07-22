@@ -36,6 +36,18 @@
                             {% endif %}
                         </div>
 
+                    <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                            <input type="email" id="{{ form.email.id_for_label }}" name="{{ form.address.html_name }}" class="form-control border-0 p-4" placeholder="Your Address" value="{{ form.address.value|default_if_none:'' }}" />
+                            {% if form.address.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.email.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
                         <!-- Country Field -->
                         <div class="form-group">
                             <label for="{{ form.country.id_for_label }}" class="form-label">Country</label>

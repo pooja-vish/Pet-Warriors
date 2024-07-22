@@ -33,7 +33,7 @@ class MemberRegistrationForm(UserCreationForm):
 
     class Meta:
         model = Member
-        fields = ['username', 'address', 'country', 'province', 'city', 'mobileNo', 'password1', 'password2']
+        fields = ['username', 'email','address', 'country', 'province', 'city', 'mobileNo', 'password1', 'password2']
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
