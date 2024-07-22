@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d98150a2-0b47-448a-bbf6-c04dbb6cae1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LoginSignup/auth_backends/authentication_backend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginSignup/accountadater.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginSignup/adapter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginSignup/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginSignup/socialmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginSignup/static/LoginSignup/img/google-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PetWarrior.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PetWarrior.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginSignup/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LoginSignup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetForum/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetForum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PetWarrior/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetWarrior/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetWarrior/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetWarrior/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +39,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="login" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -48,8 +62,8 @@
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;login&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Semester3/Internship Project/Pet-Warriors&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;LoginSignup&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kausa/EcoExchange&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -60,6 +74,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kausa\Documents\Pet-Warriors\LoginSignup\static\LoginSignup\img" />
+      <recent name="C:\Users\kausa\Documents\Pet-Warriors\LoginSignup\static\LoginSignup" />
       <recent name="E:\Semester3\Internship Project\Pet-Warriors\LoginSignup\templates\LoginSignup" />
       <recent name="E:\Semester3\Internship Project\Pet-Warriors\Adoption\templates\Adoption" />
     </key>
@@ -113,7 +129,23 @@
       <workItem from="1718772953352" duration="7975000" />
       <workItem from="1718814994299" duration="3481000" />
       <workItem from="1718892272450" duration="1752000" />
-      <workItem from="1719114147666" duration="2463000" />
+      <workItem from="1719114147666" duration="5522000" />
+      <workItem from="1719127603690" duration="134000" />
+      <workItem from="1719127855162" duration="595000" />
+      <workItem from="1719180079336" duration="919000" />
+      <workItem from="1719231530900" duration="2617000" />
+      <workItem from="1720373696062" duration="2519000" />
+      <workItem from="1720547736690" duration="9610000" />
+      <workItem from="1720585473932" duration="467000" />
+      <workItem from="1720585963156" duration="152000" />
+      <workItem from="1720586130564" duration="4246000" />
+      <workItem from="1720627282067" duration="4444000" />
+      <workItem from="1720646052454" duration="792000" />
+      <workItem from="1720736272772" duration="44000" />
+      <workItem from="1720892115384" duration="10711000" />
+      <workItem from="1721365100685" duration="1291000" />
+      <workItem from="1721578301268" duration="1801000" />
+      <workItem from="1721665446226" duration="635000" />
     </task>
     <servers />
   </component>
@@ -125,10 +157,33 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/LoginSignup" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="django-line">
+          <url>file://$PROJECT_DIR$/PetForum/templates/PetForum/base.html</url>
+          <line>51</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

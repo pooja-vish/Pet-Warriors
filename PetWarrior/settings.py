@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +43,29 @@ INSTALLED_APPS = [
     'Adoption.apps.AdoptionConfig',
     'LoginSignup.apps.LoginsignupConfig',
     'lost_and_found',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',  # Correct module name for account
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google":{
+        "SCOPE": ["profile", "email"],
+        "AUTH_PARAMS": {"access_type": "online"},
+    }
+}
+
+SITE_ID = 1
+
+
+
+
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'PetWarrior.urls'
@@ -67,6 +92,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -104,8 +130,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTHENTICATION_BACKENDS = [
-    'LoginSignup.auth_backends.authentication_backend.EmailBackend',  # Adjust the path accordingly
-    'django.contrib.auth.backends.ModelBackend',  # Keep the default backend
+    'LoginSignup.auth_backends.authentication_backend.EmailBackend', # Adjust the path accordingly
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',# Keep the default backend
 ]
 
 # Internationalization
@@ -129,3 +156,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
