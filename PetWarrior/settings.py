@@ -49,7 +49,11 @@ INSTALLED_APPS = [
     'allauth.account',  # Correct module name for account
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'crispy_forms',
 ]
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SOCIALACCOUNT_PROVIDERS = {
     "google":{

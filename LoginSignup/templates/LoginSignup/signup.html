@@ -1,102 +1,172 @@
 {% extends "PetForum/base.html" %}
 {% load static %}
 {% block content %}
- <!-- Signup Start -->
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your First Name" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Last Name" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Address" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Country" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <select class="custom-select border-0 px-4" style="height: 47px;">
-                                    <option selected>Select Province</option>
-                                    <option value="1">Alberta</option>
-                                    <option value="2">British Columbia</option>
-                                    <option value="3">Manitoba</option>
-                                    <option value="4">New Brunswick</option>
-                                    <option value="5">Newfoundland and Labrador</option>
-                                    <option value="6">Northwest Territories</option>
-                                    <option value="7">Nova Scotia</option>
-                                    <option value="8">Nunavut</option>
-                                    <option value="9">Ontario</option>
-                                    <option value="10">Prince Edward Island</option>
-                                    <option value="11">Quebec</option>
-                                    <option value="12">Saskatchewan</option>
-                                    <option value="13">Yukon</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your City" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-control border-0 p-4" placeholder="Your Contact Number" required="required" />
-                            </div>
-                            <div>
-                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign up</button>
-                            </div>
-                            <div>
-                                <a href="{% url 'login' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Already a Member? Login</a>
-                               <!-- <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign up</button>-->
-                            </div>
-                        </form>
-                    </div>
+<!-- Signup Start -->
+<div class="container-fluid">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="bg-primary py-5 px-4 px-sm-5">
+                    <form method="post" action="{% url 'signup' %}" class="py-5">
+                        {% csrf_token %}
+
+                        <!-- Username Field -->
+                        <div class="form-group">
+                            <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                            <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" class="form-control border-0 p-4" placeholder="Your Username" value="{{ form.username.value|default_if_none:'' }}" />
+                            {% if form.username.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.username.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Address Field -->
+                        <div class="form-group">
+                            <label for="{{ form.address.id_for_label }}" class="form-label">Address</label>
+                            <input type="text" id="{{ form.address.id_for_label }}" name="{{ form.address.html_name }}" class="form-control border-0 p-4" placeholder="Your Address" value="{{ form.address.value|default_if_none:'' }}" />
+                            {% if form.address.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.address.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Country Field -->
+                        <div class="form-group">
+                            <label for="{{ form.country.id_for_label }}" class="form-label">Country</label>
+                            <input type="text" id="{{ form.country.id_for_label }}" name="{{ form.country.html_name }}" class="form-control border-0 p-4" placeholder="Your Country" value="{{ form.country.value|default_if_none:'' }}" />
+                            {% if form.country.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.country.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Province Field -->
+                        <div class="form-group">
+                            <label for="{{ form.province.id_for_label }}" class="form-label">Province</label>
+                            <select id="{{ form.province.id_for_label }}" name="{{ form.province.html_name }}" class="custom-select border-0 px-4" style="height: 47px;">
+                                {% for value, display in form.province.field.choices %}
+                                    <option value="{{ value }}" {% if value == form.province.value %}selected{% endif %}>{{ display }}</option>
+                                {% endfor %}
+                            </select>
+                            {% if form.province.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.province.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- City Field -->
+                        <div class="form-group">
+                            <label for="{{ form.city.id_for_label }}" class="form-label">City</label>
+                            <input type="text" id="{{ form.city.id_for_label }}" name="{{ form.city.html_name }}" class="form-control border-0 p-4" placeholder="Your City" value="{{ form.city.value|default_if_none:'' }}" />
+                            {% if form.city.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.city.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Mobile Number Field -->
+                        <div class="form-group">
+                            <label for="{{ form.mobileNo.id_for_label }}" class="form-label">Mobile Number</label>
+                            <input type="tel" id="{{ form.mobileNo.id_for_label }}" name="{{ form.mobileNo.html_name }}" class="form-control border-0 p-4" placeholder="Your Mobile Number" value="{{ form.mobileNo.value|default_if_none:'' }}" />
+                            {% if form.mobileNo.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.mobileNo.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Password1 Field -->
+                        <div class="form-group">
+                            <label for="{{ form.password1.id_for_label }}" class="form-label">Password</label>
+                            <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.html_name }}" class="form-control border-0 p-4" placeholder="Your Password" />
+                            {% if form.password1.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.password1.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Password2 Field -->
+                        <div class="form-group">
+                            <label for="{{ form.password2.id_for_label }}" class="form-label">Confirm Password</label>
+                            <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.html_name }}" class="form-control border-0 p-4" placeholder="Confirm Your Password" />
+                            {% if form.password2.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.password2.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign up</button>
+
+                        <!-- Login Redirect -->
+                        <div class="mt-3">
+                            <a href="{% url 'login' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Already a Member? Login</a>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
-                    <h4 class="text-secondary mb-3">What we provide?</h4>
-                    <h1 class="display-4 mb-4">Our <span class="text-primary">Services</span></h1>
-                    <p></p>
-                    <div class="row py-2">
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Pet Forum</h5>
-                                </div>
-                                <p>Post, Discuss, Question or Answer pet Pet-Related issues.</p>
+            </div>
+            <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                <h4 class="text-secondary mb-3">What we provide?</h4>
+                <h1 class="display-4 mb-4">Our <span class="text-primary">Services</span></h1>
+                <p></p>
+                <div class="row py-2">
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-house font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Pet Forum</h5>
                             </div>
+                            <p>Post, Discuss, Question or Answer pet Pet-Related issues.</p>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Offers & Discounts</h5>
-                                </div>
-                                <p>Find out the latest offers and discounts on pet products.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-food font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Offers & Discounts</h5>
                             </div>
+                            <p>Find out the latest offers and discounts on pet products.</p>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Adopt</h5>
-                                </div>
-                                <p class="m-0">Don't buy, go for adoption through our adoption feature.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-grooming font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Adopt</h5>
                             </div>
+                            <p class="m-0">Don't buy, go for adoption through our adoption feature.</p>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex align-items-center mb-2">
-                                    <h1 class="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
-                                    <h5 class="text-truncate m-0">Lost & Found</h5>
-                                </div>
-                                <p class="m-0">Find out about the lost and found pets.</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <h1 class="flaticon-toy font-weight-normal text-secondary m-0 mr-3"></h1>
+                                <h5 class="text-truncate m-0">Lost & Found</h5>
                             </div>
+                            <p class="m-0">Find out about the lost and found pets.</p>
                         </div>
                     </div>
                 </div>
