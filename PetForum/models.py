@@ -8,12 +8,9 @@ class Member(User):
     country = models.CharField(max_length=300, default='Canada')
     province = models.CharField(max_length=10, default='ON')
     city = models.CharField(max_length=500, default='Windsor')
-<<<<<<< HEAD
-    mobileNo = models.IntegerField()
 
-=======
     mobileNo = PhoneNumberField()
->>>>>>> 483db394b11eb08820a37dd552a81764791c90ff
+
 
 class Category(models.Model):
     title = models.CharField(max_length=60)
