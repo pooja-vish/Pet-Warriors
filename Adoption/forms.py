@@ -19,5 +19,3 @@ class AdoptionForm(forms.ModelForm):
             'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
         }
 
-class AdoptionSearchForm(forms.Form):
-    species = forms.CharField(required=False,label='',widget=forms.TextInput(attrs={'class': 'form-control form-control-lg', 'placeholder': 'Enter species here babu'}))
