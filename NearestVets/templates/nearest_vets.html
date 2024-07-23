@@ -5,9 +5,27 @@
     <h1>Nearest Vets</h1>
 
     <!-- Search Bar and Button -->
-    <div>
-        <input type="text" id="addressSearch" placeholder="Search by Address...">
-        <button onclick="filterVets()">Search</button>
+    <div class="search-form-container">
+        <div class="search-bar">
+            <input type="text" id="addressSearch" placeholder="Search by Address...">
+            <button onclick="filterVets()" class="btn btn-primary">Search</button>
+        </div>
+
+        <form method="post" action="{% url 'refresh_data_new' %}" class="location-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="locationSelect"></label>
+                <select id="locationSelect" name="searchLocation" class="form-control">
+                    <option value="" disabled selected>Select Location</option>
+                    {% for location in locations %}
+                        <option value="{{ location.latitude }},{{ location.longitude }}">
+                            {{ location.searchLocation }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
     <div class="vet-list">
@@ -16,7 +34,7 @@
             <div class="vet-info">
                 <strong>Name:</strong> {{ vet.name }}<br>
                 <strong>Address:</strong> {{ vet.address }}<br>
-                <a href="https://www.google.com/maps/place/?q=place_id:{{ vet.place_id }}" target="_blank" class="btn btn-directions">Get Directions</a>
+                <a href="https://www.google.com/maps/place/?q=place_id:{{ vet.place_id }}" target="_blank" class="btn btn-primary">Get Directions</a>
             </div>
             {% if vet.photo_url %}
                 <div class="vet-image">
@@ -28,6 +46,38 @@
     </div>
 
     <style>
+        .search-form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar,
+        .location-form {
+            flex: 1;
+            margin: 0 10px; /* Space between search bar and form */
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px; /* Space between search input and button */
+        }
+
+        .search-bar input,
+        .search-bar button {
+            flex: 1;
+        }
+
+        .location-form {
+            display: flex;
+            gap: 10px; /* Space between form elements */
+        }
+
+        .location-form .form-group {
+            flex: 1;
+        }
+
         .vet-list {
             display: flex;
             flex-direction: column;
