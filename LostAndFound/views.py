@@ -40,6 +40,7 @@ def found(request):
             found_pet = form.save(commit=False)
             found_pet.user = request.user  # Associate the pet with the current user
             found_pet.save()
+            form = FoundPetForm()
             # return redirect('found')
     else:
         form = FoundPetForm()
