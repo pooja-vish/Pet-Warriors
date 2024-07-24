@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'NearestVets',
     'Adoption.apps.AdoptionConfig',
     'LoginSignup.apps.LoginsignupConfig',
-    'LostAndFound',
+    'LostAndFound.apps.LostAndFoundConfig',
     'django.contrib.sites',
     'allauth',
     'allauth.account',  # Correct module name for account
