@@ -7,7 +7,7 @@ class Member(User):
     country = models.CharField(max_length=300, default='Canada')
     province = models.CharField(max_length=10, default='ON')
     city = models.CharField(max_length=500, default='Windsor')
-    mobileNo = models.IntegerField(max_length=10)
+    mobileNo = models.IntegerField(10)
 
 
 class Category(models.Model):

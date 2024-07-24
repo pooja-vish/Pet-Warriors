@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'PetForum.apps.PetforumConfig',
     'Adoption.apps.AdoptionConfig',
     'LoginSignup.apps.LoginsignupConfig',
+    'OffersAndDiscounts',
     'lost_and_found',
 ]
 
