@@ -27,11 +27,8 @@ urlpatterns = [
     path('', include('PetForum.urls')),
     path('', include('Adoption.urls')),
     path('', include('LoginSignup.urls')),
-    path('', include('LostAndFound.urls')),
-
-    #path('',include('googleauthentication.urls')),
+    path('LostAndFound/', include('LostAndFound.urls')),
     path('accounts/', include('allauth.urls')),
-
     path('nearest-vets/', include('NearestVets.urls')),
 
 ]
