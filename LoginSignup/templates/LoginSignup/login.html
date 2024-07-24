@@ -1,4 +1,5 @@
-{% extends "PetForum\base.html" %}
+{% extends "PetForum/base.html" %}
+{% load socialaccount %}
 {% load static %}
 {% block content %}
      <!-- Login Start -->
@@ -7,19 +8,29 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
+                        <form class="py-5" method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
                             <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                                <input type="text" class="form-control border-0 p-4" placeholder="Your Email" required="required" name="email"/>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control border-0 p-4" placeholder="Your Password" required="required" />
+                                <input type="password" class="form-control border-0 p-4" placeholder="Your Password" required="required" name="password"/>
                             </div>
                             <div>
                                 <button class="btn btn-dark btn-block border-0 py-3" type="submit">Login</button>
                             </div>
+
+                            <div class="mt-4">
+                                <a href="{% provider_login_url 'google' %}" class="btn btn-outline-light btn-block py-2" style="background: #4285F4; color: white; border-color: #4285F4;">
+                                    <img src="{% static 'LoginSignup/img/google-icon.png' %}" alt="Google Icon" style="width: 20px; margin-right: 10px;">
+                                    Login with Google
+                                </a>
+                               <a href="{% url 'signup' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">New Member? Create an Account.</a>
+
                             <div>
-                                <a href="signup.html" class="btn btn-lg btn-primary px-3 d-none d-lg-block">New Member? Create an Account.</a>
+
                                <!-- <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign up</button>-->
+
                             </div>
                         </form>
                     </div>

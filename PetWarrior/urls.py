@@ -17,17 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from OffersAndDiscounts.views import offers_view
+from LoginSignup.views import CustomSignupView
 from PetForum import views, urls
 from Adoption import views, urls
 from LoginSignup import views, urls
-from OffersAndDiscounts import views
-
-
+from NearestVets import views, urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('PetForum.urls')),
     path('', include('Adoption.urls')),
-    path('', include('OffersAndDiscounts.urls')),
-    path('', include('LoginSignup.urls'))
+    path('', include('LoginSignup.urls')),
+    path('', include('LostAndFound.urls')),
+
+    #path('',include('googleauthentication.urls')),
+    path('accounts/', include('allauth.urls')),
+
+    path('nearest-vets/', include('NearestVets.urls')),
+
 ]
