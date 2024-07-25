@@ -1,0 +1,97 @@
+{% extends "PetForum/base.html" %}
+{% load static %}
+{% block content %}
+<div class="py-4">
+    <div class="row pt-5">
+        <div class="col-lg-11">
+<form action="{% url 'forum' %}" method="post">
+                            {% csrf_token %}
+
+                <div class="mb-4">
+                    <div class="container input-group">
+
+                        <input type="text" class="input-box form-control form-control-lg" name="keyword" placeholder="Enter your search keyword here">
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text bg-transparent text-primary"><i class="fa fa-search"></i></button>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary px-3 d-none d-lg-block pad" type="button" onclick="askQuestions()">Ask a question</button>
+                    </div>
+                </div>
+</form>
+            <div id="form-container" class="form-popup" style="display:none;">
+                <form id="question-form" action="{% url 'question_submit' %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-1 col-lg-3">
+        <h3 class="mb-4">Categories</h3>
+        <form action="{% url 'forum' %}" method="post">
+            {% csrf_token %}
+            <ul class="list-group">
+                {% for category in categories %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <input type="checkbox" name="categories" value="{{ category.category_title }}"> {{ category.category_title }}
+                    <span class="badge badge-primary badge-pill">{{ category.count }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <br>
+            <div class="row-lg-100">
+                <button class="btn btn-lg btn-primary px-3 d-none d-lg-block" type="submit">Filter</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-9 col-lg-9 space-div ">
+        <div class="media mb-4 ">
+            <div class="media-body div-scroll">
+                {% for post in posts %}
+                    <div class="card-body bg-light p-4 after-space-div">
+                <h6>{{ post.question.member.first_name }} {{ post.question.member.last_name }} <small><i>{{ post.question.creationDate }}</i></small></h6>
+                <p><b>{{ post.question.question }}</b></p>
+                <button class="btn btn-sm btn-primary" type="button" onclick="showTextBox({{ post.question.question_id }})">Share your opinion</button>
+                <button class="btn btn-sm btn-primary" type="button" onclick="loadAnswers({{ post.question.question_id }})">Check other's responses</button>
+                <div class="answer-div" id="divAnswersId-{{ post.question.question_id }}" style="display:none;">
+                    <ul class="group">
+                        {% for answer in post.answers %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">{{ answer.answer }}</li>
+                        <span class="badge badge-primary badge-pill">{{ answer.likes }}</span>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <br><br>
+                    <form class="answer-container" action="{% url 'answer_submit' %}" method="post">
+
+                <div class="form-popup" id="answer-form-{{ post.question.question_id }}" style="display:none;">
+                    {% csrf_token %}
+                    <input type="hidden" name="question_id" id="{{ post.question.question_id }}" value="{{ post.question.question_id }}">
+                    <div class="form-group">
+                        <label for="answer">Enter Answer</label>
+                        <textarea class="form-control" name="answer" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="member">Select Member</label>
+                        <select class="form-control" name="member">
+                            {% for member in members %}
+                            <option value="{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button id="answer-button-{{ post.question.question_id }}" class="btn btn-sm btn-light" type="submit">Submit</button>
+
+                </div>
+
+                    </form>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

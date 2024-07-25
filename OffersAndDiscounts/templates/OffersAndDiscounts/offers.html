@@ -1,0 +1,13 @@
+{% extends "PetForum/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Deals</h1>
+    {% for deal in deals %}
+        <div class="deal">
+            <p><strong>{{ deal.description }}</strong></p>
+            <p><a href="{{ deal.url }}" target="_blank">{{ deal.url }}</a></p>
+            <p>{{ deal.discounted_price_label }}: {{ deal.discounted_price }}</p>
+            <p>{{ deal.old_price_label }}: {{ deal.old_price }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
