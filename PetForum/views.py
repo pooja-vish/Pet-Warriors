@@ -4,7 +4,6 @@ from .models import Member, Category, Question, Answer
 from django.http import HttpResponse
 from PetForum.forms import QuestionForm
 
-
 # Create your views here.
 
 def index(request):
@@ -13,7 +12,7 @@ def index(request):
 def answer_submit(request):
     if request.method == 'POST':
         answer = request.POST['answer']
-        member = Member.objects.get(pk=request.POST['member'])
+        member = Member.objects.get(username=request.user)
         question = Question.objects.get(pk=request.POST['question_id'])
         answer_object = Answer.objects.create(member=member, question=question, answer=answer)
         answer_object.save()
@@ -25,7 +24,7 @@ def question_submit(request):
         form = QuestionForm(request.POST)
         form.is_valid()
         question = form.cleaned_data['question']
-        member = form.cleaned_data['member']
+        member = Member.objects.get(username=request.user)
         question_object = Question(question=question, member=member)
         question_object.save()
         category_ids = request.POST.getlist('category')
@@ -50,12 +49,13 @@ def forum(request):
                 posts.extend(Question.objects.filter(category=category_object))
         else:
             posts = Question.objects.all()
+
     else :
         posts = Question.objects.all()
     question_with_answers = []
     for question in posts:
         answers = Answer.objects.filter(question=question)
-        question_with_answers.append({'question': question, 'answers': answers})
+        question_with_answers.append({'question': question, 'answers': answers, 'category': question.category.get().title})
     category_title = []
     for category in categories:
         count = Question.objects.filter(category=category).count()

@@ -34,7 +34,10 @@ function showTextBox(questionId) {
        answerForm.style.display = "block";
     }
 }
-
+function closeAnswerForm(questionId) {
+        var answerForm = document.getElementById(`answer-form-${questionId}`);
+        answerForm.style.display = "none";
+}
 function loadAnswers(questionId) {
     var answerDiv = document.getElementById(`divAnswersId-${questionId}`);
     if (answerDiv.style.display === "block") {
@@ -43,7 +46,10 @@ function loadAnswers(questionId) {
         answerDiv.style.display = "block";
     }
 }
+    function closeForm() {
+            document.getElementById('form-container').style.display = 'none';
 
+        }
 
         function hideTextBox() {
             document.getElementById("myForm").style.display = "none";
@@ -70,12 +76,12 @@ function loadAnswers(questionId) {
             </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
-					<a href="{% url 'forum' %}" class="nav-item nav-link">Forum</a>
-                    <a href="{% url 'LostAndFound:lost' %}" class="nav-item nav-link">Lost</a>
-                    <a href="{% url 'LostAndFound:found' %}" class="nav-item nav-link">Found</a>
-                    <a href="{% url 'nearest_vets' %}" class="nav-item nav-link">Find Nearest Vets</a>
-                    <a href="{% url 'adoption' %}" class="nav-item nav-link">Adoption</a>
+                    <a href="{% url 'index' %}" class="nav-item nav-link{% if request.path == '/' %} active {% endif %}">Home</a>
+					<a href="{% url 'forum' %}" class="nav-item nav-link{% if request.path == '/forum/' %} active {% endif %}">Forum</a>
+                    <a href="{% url 'LostAndFound:lost' %}" class="nav-item nav-link{% if request.path == '/LostAndFound/lost/' %} active {% endif %}">Lost</a>
+                    <a href="{% url 'LostAndFound:found' %}" class="nav-item nav-link{% if request.path == '/LostAndFound/found/' %} active {% endif %}">Found</a>
+                    <a href="{% url 'nearest_vets' %}" class="nav-item nav-link{% if request.path == '/nearest-vets/' %} active {% endif %}">Find Nearest Vets</a>
+                    <a href="{% url 'adoption' %}" class="nav-item nav-link {% if request.path == '/adoption/' %} active {% endif %}">Adoption</a>
 					<a href="#" class="nav-item nav-link">Offers & Discounts</a>
                 </div>
                 <a href="{% url 'login' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Login/SignUp</a>
