@@ -825,7 +825,15 @@ pre code {
 .order-12 {
   order: 12;
 }
-
+.close-btn {
+            font-size: 16px;
+            padding: 4px 8px;
+            margin-left: 220px;
+            cursor: pointer;
+            color: #333;
+            background: none;
+            border: none;
+        }
 .offset-1 {
   margin-left: 8.33333%;
 }
@@ -2386,6 +2394,11 @@ fieldset:disabled a.btn {
   border-color: #ED6436;
 }
 
+.div-primary {
+  color: #e84a15;
+  font-size: x-large;
+
+}
 .btn-primary:hover {
   color: #fff;
   background-color: #e84a15;

@@ -20,6 +20,7 @@
                 </div>
 </form>
             <div id="form-container" class="form-popup" style="display:none;">
+                <button type="button" class="close-btn" id="cross-button" onclick="closeForm()"><i class="fa fa-times"></i></button>
                 <form id="question-form" action="{% url 'question_submit' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
@@ -53,41 +54,36 @@
             <div class="media-body div-scroll">
                 {% for post in posts %}
                     <div class="card-body bg-light p-4 after-space-div">
-                <h6>{{ post.question.member.first_name }} {{ post.question.member.last_name }} <small><i>{{ post.question.creationDate }}</i></small></h6>
+                <h6>{{ post.question.member.first_name }} {{ post.question.member.last_name }} <small><i>{{ post.question.creationDate }}</i></small><div class="btn btn-sm div-primary"> <b>{{ post.category }} </b></div> </h6>
                 <p><b>{{ post.question.question }}</b></p>
                 <button class="btn btn-sm btn-primary" type="button" onclick="showTextBox({{ post.question.question_id }})">Share your opinion</button>
                 <button class="btn btn-sm btn-primary" type="button" onclick="loadAnswers({{ post.question.question_id }})">Check other's responses</button>
                 <div class="answer-div" id="divAnswersId-{{ post.question.question_id }}" style="display:none;">
                     <ul class="group">
                         {% for answer in post.answers %}
+                            <div class="card-body bg-light p-4 after-space-div">
+                        <h6>{{ answer.member.first_name }} {{ answer.member.last_name }} <small><i>{{ answer.creationDate }}</i></small></h6>
                         <li class="list-group-item d-flex justify-content-between align-items-center">{{ answer.answer }}</li>
-                        <span class="badge badge-primary badge-pill">{{ answer.likes }}</span>
+                            <span class="badge badge-primary badge-pill">{{ answer.likes }}</span>
+                            </div>
+
                         {% endfor %}
                     </ul>
                 </div>
-                <br><br>
-                    <form class="answer-container" action="{% url 'answer_submit' %}" method="post">
-
                 <div class="form-popup" id="answer-form-{{ post.question.question_id }}" style="display:none;">
+                <button type="button" class="close-btn" id="cross-button" onclick="closeAnswerForm({{ post.question.question_id }})"><i class="fa fa-times"></i></button>
+
+                <form class="answer-container" action="{% url 'answer_submit' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="question_id" id="{{ post.question.question_id }}" value="{{ post.question.question_id }}">
                     <div class="form-group">
                         <label for="answer">Enter Answer</label>
                         <textarea class="form-control" name="answer" rows="3"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="member">Select Member</label>
-                        <select class="form-control" name="member">
-                            {% for member in members %}
-                            <option value="{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
                     <button id="answer-button-{{ post.question.question_id }}" class="btn btn-sm btn-light" type="submit">Submit</button>
-
+                    </form>
                 </div>
 
-                    </form>
                     </div>
                 {% endfor %}
             </div>
