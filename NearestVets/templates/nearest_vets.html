@@ -134,24 +134,90 @@
         }
     </style>
 
-    <script>
-        function filterVets() {
-            var input, filter, vetItems, vet, address, i;
-            input = document.getElementById('addressSearch');
-            filter = input.value.toUpperCase();
-            vetItems = document.getElementsByClassName('vet-item');
+<script>
+    function filterVets() {
+    var input, filter, vetItems, vet, address, i;
+    input = document.getElementById('addressSearch');
+    filter = input.value.toUpperCase().trim(); // Convert to uppercase and trim whitespace
+    vetItems = document.getElementsByClassName('vet-item');
 
-            for (i = 0; i < vetItems.length; i++) {
-                vet = vetItems[i];
-                address = vet.getAttribute('data-address');
+    // If the search bar is empty, display all vet items
+    if (filter === "") {
+        for (i = 0; i < vetItems.length; i++) {
+            vetItems[i].style.display = '';
+        }
+        return;
+    }
 
-                if (address.toUpperCase().indexOf(filter) > -1) {
-                    vet.style.display = '';
-                } else {
-                    vet.style.display = 'none';
-                }
+    for (i = 0; i < vetItems.length; i++) {
+        vet = vetItems[i];
+        address = vet.getAttribute('data-address').toUpperCase();
+
+        if (isMatch(filter, address)) {
+            vet.style.display = '';
+        } else {
+            vet.style.display = 'none';
+        }
+    }
+}
+
+function isMatch(filter, address) {
+    var filterWords = filter.split(' ');
+    var addressWords = address.split(' ');
+
+    // Check if there is a close match for any word in the filter within the address
+    for (var i = 0; i < filterWords.length; i++) {
+        var wordMatchFound = false;
+        for (var j = 0; j < addressWords.length; j++) {
+            if (isCloseMatch(filterWords[i], addressWords[j])) {
+                wordMatchFound = true;
+                break;
             }
         }
-    </script>
+        if (!wordMatchFound) return false;
+    }
+    return true;
+}
+
+function isCloseMatch(word1, word2) {
+    var distance = levenshteinDistance(word1, word2);
+    var longerLength = Math.max(word1.length, word2.length);
+    // Increase the threshold to allow more tolerance
+    var threshold = Math.max(longerLength * 0.5, 3); // Allow up to 50% difference or 3 edits
+
+    return distance <= threshold;
+}
+
+function levenshteinDistance(a, b) {
+    var matrix = [];
+
+    // Increment along the first column of each row
+    for (var i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    // Increment each column in the first row
+    for (var j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    // Fill in the rest of the matrix
+    for (var i = 1; i <= b.length; i++) {
+        for (var j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, // substitution
+                                        matrix[i][j - 1] + 1,     // insertion
+                                        matrix[i - 1][j] + 1);    // deletion
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+
+   </script>
 
 {% endblock content %}
