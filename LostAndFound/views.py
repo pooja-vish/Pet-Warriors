@@ -4,6 +4,21 @@ from .forms import LostPetForm, FoundPetForm
 from django.db.models import Q
 from .models import FoundPet, LostPet
 
+
+def lostSearch(request):
+    posts = []
+    #form = AdoptionForm(request.POST or None)
+    if request.method == 'POST':
+        species = request.POST.get('species')
+        if species:
+            pets = LostPet.objects.filter(species__icontains=species)
+        else:
+            pets = LostPet.objects.all().order_by('-id')
+    else:
+        pets = LostPet.objects.all().order_by('date_posted')
+    form = LostPet()
+    return render(request, 'LostAndFound/lost.html', {'form': form, 'pets': pets})
+
 def lost(request):
     if request.method == 'POST':
         form = LostPetForm(request.POST, request.FILES)
@@ -61,3 +76,16 @@ def found(request):
         'searchForm': form  # Assuming form is used for search; adjust if separate search form is used
     }
     return render(request, 'LostAndFound/found.html', context)
+def foundSearch(request):
+    posts = []
+    #form = AdoptionForm(request.POST or None)
+    if request.method == 'POST':
+        species = request.POST.get('species')
+        if species:
+            pets = FoundPet.objects.filter(species__icontains=species)
+        else:
+            pets = FoundPet.objects.all().order_by('-id')
+    else:
+        pets = FoundPet.objects.all().order_by('date_posted')
+    form = FoundPet()
+    return render(request, 'LostAndFound/found.html', {'form': form, 'pets': pets})
