@@ -3,6 +3,19 @@
 {% block content %}
     <!-- Lost Pets Page Starts -->
     <div class="container-fluid">
+    <form action="{% url 'LostAndFound:lostSearch' %}" method="post">
+            {% csrf_token %}
+            <div class="mb-4 mb-5 my-sm-2 mx-5 p-1">
+                <div class="container input-group">
+                    <input type="text" class="input-box form-control form-control-lg" name="species"
+                           placeholder="Enter species here one">
+                    <div class="input-group-append">
+                        <button type="submit" class="input-group-text bg-transparent text-primary"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
 {#        <!-- search bar -->#}
 {#        <div class="mb-5 my-sm-2 mx-5 p-1">#}
 {#            <form method="get">#}
@@ -20,7 +33,7 @@
                 <div class="col-lg-5">
                     <div class="bg-primary py-5 px-4 px-sm-5">
                         <form method="post" enctype="multipart/form-data" class="py-5">
-                            <h3 class="font-weight-bolder">Have you lost a pet? Let us help you find it!</h3>
+                            <h3 class="font-weight-bolder">Have you lost a pet? Let us help you find!</h3>
                             {% csrf_token %}
                             {{ form.as_p }}
                             <div>
@@ -42,7 +55,7 @@
                                     <small class="mr-2"><i class="fa fa-comments text-muted"></i> {{ post.date_posted }}</small>
                                 </div>
                                 <p>{{ post.description }}</p>
-                                <a class="font-weight-bold" href="">HELLO</a>
+{#                                <a class="font-weight-bold" href="">HELLO</a>#}
                             </div>
                         </div>
                     {% endfor %}
