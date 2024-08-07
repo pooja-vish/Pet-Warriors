@@ -3,19 +3,6 @@
 {% block content %}
     <!-- Lost Pets Page Starts -->
     <div class="container-fluid">
-    <form action="{% url 'LostAndFound:lostSearch' %}" method="post">
-            {% csrf_token %}
-            <div class="mb-4 mb-5 my-sm-2 mx-5 p-1">
-                <div class="container input-group">
-                    <input type="text" class="input-box form-control form-control-lg" name="species"
-                           placeholder="Enter species here one">
-                    <div class="input-group-append">
-                        <button type="submit" class="input-group-text bg-transparent text-primary"><i
-                                class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </form>
 {#        <!-- search bar -->#}
 {#        <div class="mb-5 my-sm-2 mx-5 p-1">#}
 {#            <form method="get">#}
@@ -27,13 +14,27 @@
 {#                </div>#}
 {#            </form>#}
 {#        </div>#}
+
+         <form action="{% url 'LostAndFound:lostPetSearch' %}" method="post" name="search">
+            {% csrf_token %}
+            <div class="mb-4 mb-5 my-sm-2 mx-5 p-1">
+                <div class="container input-group">
+                    <input type="text" class="input-box form-control form-control-lg" name="species"
+                           placeholder="Search by species, description or by location">
+                    <div class="input-group-append">
+                        <button type="submit" class="input-group-text bg-transparent text-primary"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
         <!-- search bar ends -->
         <div class="container_adoption">
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="bg-primary py-5 px-4 px-sm-5">
                         <form method="post" enctype="multipart/form-data" class="py-5">
-                            <h3 class="font-weight-bolder">Have you lost a pet? Let us help you find!</h3>
+                            <h3 class="font-weight-bolder">Have you lost a pet? Let us help you find it!</h3>
                             {% csrf_token %}
                             {{ form.as_p }}
                             <div>
@@ -44,18 +45,22 @@
                 </div>
                 <div class="col-lg-7 scrollable-div">
                     <h3 class="display-4 mb-4 position-sticky">Lost Pets <span class="text-primary">We are looking for them</span></h3>
-                    {% for post in pets %}
+                    {% for post in posts %}
                         <div class="card border-0 mb-2">
                             <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.species }}">
                             <div class="card-body bg-light p-4">
-                                <h4 class="card-title text-truncate">{{ post.species }}</h4>
+                                {% if post.species == 'Other' %}
+                                    <h4 class="card-title text-truncate">{{ post.other_species }}</h4>
+                                {% else %}
+                                    <h4 class="card-title text-truncate">{{ post.species }}</h4>
+                                {% endif %}
                                 <div class="d-flex mb-3">
                                     <small class="mr-2"><i class="fa fa-user text-muted"></i> {{ post.user }}</small>
                                     <small class="mr-2"><i class="fa fa-folder text-muted"></i> {{ post.location }}</small>
                                     <small class="mr-2"><i class="fa fa-comments text-muted"></i> {{ post.date_posted }}</small>
                                 </div>
                                 <p>{{ post.description }}</p>
-{#                                <a class="font-weight-bold" href="">HELLO</a>#}
+                                <a class="font-weight-bold" href="">HELLO</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -63,5 +68,31 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var speciesSelect = document.getElementById('species');
+            var otherSpeciesInput = document.getElementById('other_species');
+
+            function toggleOtherSpecies() {
+                console.log(speciesSelect.value)
+                if (speciesSelect.value === 'Other') {
+                    console.log('true')
+                    otherSpeciesInput.style.display = 'block';
+                    {#speciesSelect.value = otherSpeciesInput.value;#}
+                } else {
+                    otherSpeciesInput.style.display = 'none';
+                }
+            }
+
+            // Initial check
+            toggleOtherSpecies();
+
+            // Add event listener for changes
+            speciesSelect.addEventListener('change', toggleOtherSpecies);
+        });
+    </script>
     <!-- Lost Pets Page Ends -->
 {% endblock content %}
+ 
+
+ 

@@ -8,6 +8,7 @@ class LostPet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add=True)
     species = models.CharField(max_length=100)
+    other_species = models.TextField(blank=True, null=True)
     pet_name = models.CharField(max_length=100, blank=True, null=True)  # Optional
 
     def __str__(self):
@@ -20,6 +21,7 @@ class FoundPet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add=True)
     species = models.CharField(max_length=100)
+    other_species = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"Found Pet: {self.species} at {self.location}"
