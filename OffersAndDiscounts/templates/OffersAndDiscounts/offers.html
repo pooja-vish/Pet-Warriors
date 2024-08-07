@@ -1,0 +1,33 @@
+{% extends "PetForum/base.html" %}
+{% load static %}
+{% block content %}
+     <h1 style="text-align: center"></h1>
+
+    <form method="post" action="{% url 'offers_view' %}">
+        {%   csrf_token %}
+        <div class="container input-group form-group pet-margin">
+
+       <select id="animals" class="pet-form-control" name="animals">
+            <option value="">Select species</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="bird">Bird</option>
+            <option value="fish">Fish</option>
+            <option value="reptile">Reptile</option>
+            <option value="small_pets">Small Pets</option>
+        </select>
+        <input class="btn btn-lg btn-primary px-3" type="submit" value="Submit">
+            </div>
+
+    </form>
+    <div class="div-pet-scroll">
+
+    {% for deal in deals %}
+        <div class="card-body bg-light p-4 after-offers-div div-after-pet">
+            <p><strong>Product Name: </strong>{{ deal.description }}</p>
+            <p><strong>Product Link: </strong><a href="{{ deal.url }}" target="_blank">{{ deal.url }}</a></p>
+            <p><strong>Product Price: </strong>{{ deal.old_price_label }}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock content %}

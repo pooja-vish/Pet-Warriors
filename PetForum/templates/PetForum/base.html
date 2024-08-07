@@ -82,7 +82,7 @@ function loadAnswers(questionId) {
                     <a href="{% url 'LostAndFound:found' %}" class="nav-item nav-link{% if request.path == '/LostAndFound/found/' %} active {% endif %}">Found</a>
                     <a href="{% url 'nearest_vets' %}" class="nav-item nav-link{% if request.path == '/nearest-vets/' %} active {% endif %}">Find Nearest Vets</a>
                     <a href="{% url 'adoption' %}" class="nav-item nav-link {% if request.path == '/adoption/' %} active {% endif %}">Adoption</a>
-					<a href="#" class="nav-item nav-link">Offers & Discounts</a>
+					<a href="{% url 'offers' %}" class="nav-item nav-link {% if request.path == '/offers/' %} active {% endif %}">Offers & Discounts</a>
                 </div>
                 <a href="{% url 'login' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Login/SignUp</a>
             </div>
@@ -119,7 +119,7 @@ function loadAnswers(questionId) {
                             <a class="text-white mb-2" href="{% url 'LostAndFound:lost' %}"><i class="fa fa-angle-right mr-2"></i>Lost</a>
                             <a class="text-white mb-2" href="{% url 'LostAndFound:found' %}"><i class="fa fa-angle-right mr-2"></i>Found</a>
                             <a class="text-white" href="{% url 'adoption' %}"><i class="fa fa-angle-right mr-2"></i>Adoption</a>
-							<a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Offers & Discounts</a>
+							<a class="text-white" href="{% url 'offers' %}"><i class="fa fa-angle-right mr-2"></i>Offers & Discounts</a>
 							<a class="text-white" href="{% url 'nearest_vets' %}"><i class="fa fa-angle-right mr-2"></i>Find Nearest Vets</a>
                         </div>
                     </div>

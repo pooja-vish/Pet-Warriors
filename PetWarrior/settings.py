@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'LoginSignup.apps.LoginsignupConfig',
     'LostAndFound.apps.LostAndFoundConfig',
     'django.contrib.sites',
+    'OffersAndDiscounts',
     'allauth',
     'allauth.account',  # Correct module name for account
     'allauth.socialaccount',
