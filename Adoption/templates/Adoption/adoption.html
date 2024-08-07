@@ -18,7 +18,7 @@
              </form>
          </div>-->
 
-        <form action="{% url 'adoptionSearch' %}" method="post">
+        <form action="{% url 'adoptionSearch' %}" method="post" name="search">
             {% csrf_token %}
             <div class="mb-4 mb-5 my-sm-2 mx-5 p-1">
                 <div class="container input-group">
@@ -41,22 +41,6 @@
                             <h3 class="font-weight-bolder">Have pets, wanna give for adoption?</h3>
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <!--<div class="form-group">
-                                <input type="file" class="form-control border-0 p-4" id="img" name="img"
-                                       accept="image/*" required="required">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" id="description" name="description"
-                                          placeholder="Provide Description" required="required">
-                            </div>
-                            <div class="form-group">
-                                <<input type="text" class="form-control border-0 p-4" id="location" name="location"
-                                        placeholder="Enter Location" required="required">
-                            </div>
-                            <div class="form-group">
-                                <<input type="text" class="form-control border-0 p-4" id="species" name="species"
-                                        placeholder="Enter species" required="required">
-                            </div>-->
                             <div>
                                 <button class="btn btn-dark btn-block border-0 py-3" type="submit">Up for Adoption
                                 </button>
@@ -72,7 +56,11 @@
                             <div class="card border-0 mb-2">
                                 <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.species }}">
                                 <div class="card-body bg-light p-4">
-                                    <h4 class="card-title text-truncate">{{ post.species }}</h4>
+                                    {% if post.species == 'Other' %}
+                                        <h4 class="card-title text-truncate">{{ post.other_species }}</h4>
+                                    {% else %}
+                                        <h4 class="card-title text-truncate">{{ post.species }}</h4>
+                                    {% endif %}
                                     <div class="d-flex mb-3">
                                         <small class="mr-2"><i class="fa fa-user text-muted"></i> {{ post.user_id }}
                                         </small>
@@ -91,6 +79,28 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var speciesSelect = document.getElementById('species');
+            var otherSpeciesInput = document.getElementById('other_species');
 
+            function toggleOtherSpecies() {
+                console.log(speciesSelect.value)
+                if (speciesSelect.value === 'Other') {
+                    console.log('true')
+                    otherSpeciesInput.style.display = 'block';
+                    {#speciesSelect.value = otherSpeciesInput.value;#}
+                } else {
+                    otherSpeciesInput.style.display = 'none';
+                }
+            }
+
+            // Initial check
+            toggleOtherSpecies();
+
+            // Add event listener for changes
+            speciesSelect.addEventListener('change', toggleOtherSpecies);
+        });
+    </script>
     <!--Adoption Page Ends -->
 {% endblock content %}

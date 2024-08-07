@@ -10,4 +10,4 @@ class Adoption(models.Model):
     user_id = models.ForeignKey(Member, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(default=timezone.now)
     species = models.TextField()
-
+    other_species = models.TextField(blank=True,null=True)
