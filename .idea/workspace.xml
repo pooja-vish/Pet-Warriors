@@ -4,194 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d98150a2-0b47-448a-bbf6-c04dbb6cae1e" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/LoginSignup/accountadater.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginSignup/adapter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginSignup/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginSignup/socialmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginSignup/static/LoginSignup/img/google-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PetWarrior.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PetWarrior.iml" afterDir="false" />
+    <list default="true" id="fd4b9999-e377-4629-a107-1c5858cbef72" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Pet-Warriors.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginSignup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/views.py" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/PetForum/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/PetForum/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/admin.py" afterDir="false" />
->>>>>>> 483db394b11eb08820a37dd552a81764791c90ff
-      <change beforePath="$PROJECT_DIR$/PetForum/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/static/PetForum/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/static/PetForum/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LostAndFound/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LostAndFound/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PetForum/static/PetForum/css/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/static/PetForum/css/style1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/templates/PetForum/forum.html" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/templates/PetForum/forum.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/views.py" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/Adoption/static/Adoption/img/panni.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adoption/templates/Adoption/adoption.html" beforeDir="false" afterPath="$PROJECT_DIR$/Adoption/templates/Adoption/adoption.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adoption/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adoption/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adoption/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adoption/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LoginSignup/templates/LoginSignup/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/static/PetForum/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/static/PetForum/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/templates/PetForum/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetForum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetForum/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PetWarrior/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetWarrior/settings.py" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/PetWarrior/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PetWarrior/urls.py" afterDir="false" />
-=======
->>>>>>> d000236b52ba6c002dbc93c794c8f50e1e94a699
->>>>>>> 483db394b11eb08820a37dd552a81764791c90ff
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        <option value="CSS File" />
-=======
->>>>>>> d000236b52ba6c002dbc93c794c8f50e1e94a699
->>>>>>> 483db394b11eb08820a37dd552a81764791c90ff
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="login" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2hhimrzgOkGf1SOr3u0UBgyz69m" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2kJghj66Nhqgyvkx8qTgZ2IZaUM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.PetWarrior.executor&quot;: &quot;Run&quot;,
-    &quot;Django tests.Test: Adoption.static.Adoption.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.adoption.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.login.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-<<<<<<< HEAD
-    &quot;git-widget-placeholder&quot;: &quot;LoginSignup&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kausa/EcoExchange&quot;,
-=======
-<<<<<<< HEAD
-    &quot;git-widget-placeholder&quot;: &quot;front-forum&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dellf/University/3rd Sem/Internship Project/Pet-Warriors&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-=======
-    &quot;git-widget-placeholder&quot;: &quot;Adoption&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Semester3/Internship Project/Pet-Warriors/Adoption/static/Adoption/img&quot;,
->>>>>>> d000236b52ba6c002dbc93c794c8f50e1e94a699
->>>>>>> 483db394b11eb08820a37dd552a81764791c90ff
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Gurekam/Desktop/University of Windsor/Internship Project/Pet-Warriors",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Semester3\Internship Project\Pet-Warriors\Adoption\static\Adoption\img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kausa\Documents\Pet-Warriors\LoginSignup\static\LoginSignup\img" />
-      <recent name="C:\Users\kausa\Documents\Pet-Warriors\LoginSignup\static\LoginSignup" />
-      <recent name="E:\Semester3\Internship Project\Pet-Warriors\LoginSignup\templates\LoginSignup" />
-      <recent name="E:\Semester3\Internship Project\Pet-Warriors\Adoption\templates\Adoption" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Django Server.PetWarrior">
-    <configuration name="Test: Adoption.static.Adoption" type="DjangoTestsConfigurationType" temporary="true">
-      <module name="PetWarrior" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="Adoption.static.Adoption" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="adoption.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Pet-Warriors/Adoption/templates/Adoption/adoption.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="login.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Pet-Warriors/LoginSignup/templates/LoginSignup/login.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="PetWarrior" type="Python.DjangoServer" factoryName="Django server">
-      <module name="PetWarrior" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="PetWarrior.settings" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="localhost" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Django tests.Test: Adoption.static.Adoption" />
-        <item itemvalue="JavaScript Debug.adoption.html" />
-        <item itemvalue="JavaScript Debug.login.html" />
-      </list>
-    </recent_temporary>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -203,130 +56,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d98150a2-0b47-448a-bbf6-c04dbb6cae1e" name="Changes" comment="" />
-      <created>1718052871926</created>
+      <changelist id="fd4b9999-e377-4629-a107-1c5858cbef72" name="Changes" comment="" />
+      <created>1723007214826</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1718052871926</updated>
-      <workItem from="1718052901200" duration="4917000" />
-      <workItem from="1718065845962" duration="39000" />
-      <workItem from="1718065885869" duration="304000" />
-      <workItem from="1718772953352" duration="7975000" />
-      <workItem from="1718814994299" duration="3481000" />
-      <workItem from="1718892272450" duration="1752000" />
-<<<<<<< HEAD
-      <workItem from="1719114147666" duration="5522000" />
-      <workItem from="1719127603690" duration="134000" />
-      <workItem from="1719127855162" duration="595000" />
-      <workItem from="1719180079336" duration="919000" />
-      <workItem from="1719231530900" duration="2617000" />
-      <workItem from="1720373696062" duration="2519000" />
-      <workItem from="1720547736690" duration="9610000" />
-      <workItem from="1720585473932" duration="467000" />
-      <workItem from="1720585963156" duration="152000" />
-      <workItem from="1720586130564" duration="4246000" />
-      <workItem from="1720627282067" duration="4444000" />
-      <workItem from="1720646052454" duration="792000" />
-      <workItem from="1720736272772" duration="44000" />
-      <workItem from="1720892115384" duration="10711000" />
-      <workItem from="1721365100685" duration="1291000" />
-      <workItem from="1721578301268" duration="1801000" />
-      <workItem from="1721665446226" duration="635000" />
-=======
-<<<<<<< HEAD
-      <workItem from="1718994578369" duration="1921000" />
-      <workItem from="1719113155069" duration="7670000" />
-      <workItem from="1719160874968" duration="4556000" />
-      <workItem from="1719168127679" duration="4436000" />
-      <workItem from="1719247868480" duration="921000" />
-      <workItem from="1719429735211" duration="389000" />
-      <workItem from="1719546482165" duration="5455000" />
-      <workItem from="1719593889023" duration="1393000" />
-      <workItem from="1719631623585" duration="98000" />
-      <workItem from="1719683837894" duration="19216000" />
-      <workItem from="1719726372763" duration="172000" />
-      <workItem from="1719777412060" duration="6376000" />
-      <workItem from="1720153202093" duration="109000" />
-      <workItem from="1720225974485" duration="3555000" />
-      <workItem from="1720301404806" duration="10146000" />
-      <workItem from="1720368259618" duration="7783000" />
-      <workItem from="1720630008447" duration="793000" />
-      <workItem from="1720638803726" duration="2953000" />
-      <workItem from="1721170261478" duration="14230000" />
-      <workItem from="1721230376997" duration="21014000" />
-=======
-      <workItem from="1719272820319" duration="16000" />
-      <workItem from="1719272838334" duration="4195000" />
-      <workItem from="1719347678731" duration="13028000" />
-      <workItem from="1719535074993" duration="17000" />
-      <workItem from="1719551620015" duration="71000" />
-      <workItem from="1719551709198" duration="36000" />
-      <workItem from="1719551760842" duration="187000" />
-      <workItem from="1719598869549" duration="14272000" />
-      <workItem from="1719712623399" duration="3445000" />
-      <workItem from="1720161101843" duration="274000" />
-      <workItem from="1720161407419" duration="5000" />
-      <workItem from="1720161432000" duration="1041000" />
-      <workItem from="1720228963907" duration="1919000" />
-      <workItem from="1720456131976" duration="1852000" />
-      <workItem from="1720489818569" duration="321000" />
-      <workItem from="1720637101627" duration="7461000" />
-      <workItem from="1720659520322" duration="291000" />
-      <workItem from="1720738428079" duration="6333000" />
-      <workItem from="1720756717262" duration="605000" />
->>>>>>> d000236b52ba6c002dbc93c794c8f50e1e94a699
->>>>>>> 483db394b11eb08820a37dd552a81764791c90ff
+      <updated>1723007214826</updated>
+      <workItem from="1723007215877" duration="1669000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/LoginSignup" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="django-line">
-          <url>file://$PROJECT_DIR$/PetForum/templates/PetForum/base.html</url>
-          <line>51</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-<<<<<<< HEAD
-          <url>file://$PROJECT_DIR$/PetForum/models.py</url>
-          <line>19</line>
-=======
-          <url>file://$PROJECT_DIR$/PetWarrior/settings.py</url>
-          <line>129</line>
->>>>>>> d000236b52ba6c002dbc93c794c8f50e1e94a699
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pet_Warriors$Test__Adoption_static_Adoption.coverage" NAME="Test: Adoption.static.Adoption Coverage Results" MODIFIED="1719607748834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -30,5 +30,6 @@ urlpatterns = [
     path('LostAndFound/', include('LostAndFound.urls')),
     path('accounts/', include('allauth.urls')),
     path('nearest-vets/', include('NearestVets.urls')),
+    path('', include('OffersAndDiscounts.urls'))
 
 ]
